@@ -14,5 +14,4 @@ Timing wise
 	- Basic location enabling - Dec 1st
 	- Optional google map integration by Dec 15th
 	
-Should aim to hit playstore around Dec 20th, in the producitity apps category to cashin the xmas/newyear timing
-	
+Should aim to hit playstore around Dec 20th, in the producitity apps category to cashin the xmas/newyear timing...
