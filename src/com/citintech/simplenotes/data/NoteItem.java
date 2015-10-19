@@ -1,4 +1,4 @@
-package com.citin.simplenotes.data;
+package com.citintech.simplenotes.data;
 
 import android.annotation.SuppressLint;
 import java.text.SimpleDateFormat;
