@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RightTimeAndPlace.iml" filepath="$PROJECT_DIR$/.idea/RightTimeAndPlace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/right-time-and-place.iml" filepath="$PROJECT_DIR$/right-time-and-place.iml" />
     </modules>
   </component>
 </project>

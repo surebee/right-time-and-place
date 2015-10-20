@@ -25,7 +25,7 @@ public class MainActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(com.citintech.simplenotes.R.layout.activity_main);
 		
 		datasource = new NotesDataSource(this);
 		
@@ -36,7 +36,7 @@ public class MainActivity extends ListActivity {
 	private void refreshDisplay() {
 		notesList = datasource.findAll();
 		ArrayAdapter<NoteItem> adapter =
-				new ArrayAdapter<NoteItem>(this, R.layout.list_item_layout, notesList);
+				new ArrayAdapter<NoteItem>(this, com.citintech.simplenotes.R.layout.list_item_layout, notesList);
 		setListAdapter(adapter);
 		
 	}
@@ -44,14 +44,14 @@ public class MainActivity extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(com.citintech.simplenotes.R.menu.main, menu);
 		return true;
 	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
-		if (item.getItemId() == R.id.action_create) {
+		if (item.getItemId() == com.citintech.simplenotes.R.id.action_create) {
 			createNote();
 		}
 		
