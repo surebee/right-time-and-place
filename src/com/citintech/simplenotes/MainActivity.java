@@ -1,14 +1,18 @@
 package com.citintech.simplenotes;
 
 import java.util.List;
+import java.util.Locale;
 
 import com.citintech.simplenotes.data.NoteItem;
 import com.citintech.simplenotes.data.NotesDataSource;
 
 import android.os.Bundle;
+import android.widget.AdapterView;
+import android.widget.Toast;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +24,7 @@ public class MainActivity extends ListActivity {
 
 	private static final int EDITOR_ACTIVITY_REQUEST = 1001;
 	private NotesDataSource datasource;
+	private TextToSpeech t1;
 	List<NoteItem> notesList;
 	
 	@Override
@@ -28,9 +33,37 @@ public class MainActivity extends ListActivity {
 		setContentView(com.citintech.simplenotes.R.layout.activity_main);
 		
 		datasource = new NotesDataSource(this);
+
+		t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+			@Override
+			public void onInit(int status) {
+				if(status != TextToSpeech.ERROR) {
+					t1.setLanguage(Locale.US);
+				}
+			}
+		});
+        ListView lw = (ListView) findViewById();
+		notesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
+				//String number=((TextView)view.findViewById(R.id.number)).getText().toString();
+				String toSpeak = notesList.get(position).getText().toString();
+				Toast.makeText(getApplicationContext(), toSpeak, Toast.LENGTH_SHORT).show();
+				t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+			}
+		});
 		
 		refreshDisplay();
 		
+	}
+
+	@Override
+	public void onPause(){
+		if(t1 !=null){
+			t1.stop();
+			t1.shutdown();
+		}
+		super.onPause();
 	}
 
 	private void refreshDisplay() {
@@ -72,7 +105,9 @@ public class MainActivity extends ListActivity {
 		NoteItem note = notesList.get(position);
 		Intent intent = new Intent(this, NoteEditorActivity.class);
 		intent.putExtra("key", note.getKey());
-		intent.putExtra("text", note.getText());
+		String toSpeak = note.getText();
+		intent.putExtra("text", toSpeak);
+
 		startActivityForResult(intent, EDITOR_ACTIVITY_REQUEST);
 		
 	}
