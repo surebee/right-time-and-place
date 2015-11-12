@@ -5,10 +5,13 @@ import java.util.List;
 import com.citintech.simplenotes.data.NoteItem;
 import com.citintech.simplenotes.data.NotesDataSource;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +24,9 @@ public class MainActivity extends ListActivity {
 	private static final int EDITOR_ACTIVITY_REQUEST = 1001;
 	private NotesDataSource datasource;
 	List<NoteItem> notesList;
+	private TTSService mBoundService;
+	private boolean mIsBound;
+	private ServiceConnection mConnection;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,24 @@ public class MainActivity extends ListActivity {
 		setContentView(com.citintech.simplenotes.R.layout.activity_main);
 		
 		datasource = new NotesDataSource(this);
+
+		ServiceConnection mConnection = new ServiceConnection() {
+
+			public void onServiceConnected(ComponentName className, IBinder service) {
+				mIsBound = true;
+				mBoundService = ((TTSService.TTSBinder)service).getService();
+				System.out.println("Comes here in mBoundService init...");
+			}
+
+			public void onServiceDisconnected(ComponentName className) {
+				mIsBound = false;
+				mBoundService = null;
+			}
+
+		};
+
+		Intent mIntent = new Intent(this, TTSService.class);
+		bindService(mIntent, mConnection, BIND_AUTO_CREATE);
 		
 		refreshDisplay();
 		
