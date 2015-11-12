@@ -6,14 +6,13 @@ import java.util.Locale;
 import com.citintech.simplenotes.data.NoteItem;
 import com.citintech.simplenotes.data.NotesDataSource;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.widget.AdapterView;
-import android.widget.Toast;
-import android.app.Activity;
+import android.os.IBinder;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,33 +25,33 @@ public class MainActivity extends ListActivity {
 	private NotesDataSource datasource;
 	private TextToSpeech t1;
 	List<NoteItem> notesList;
+    private TTSService mBoundService;
+    private boolean mIsBound;
+    private ServiceConnection mConnection;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.citintech.simplenotes.R.layout.activity_main);
-		
+        System.out.println("Comes here before mBoundService init...");
 		datasource = new NotesDataSource(this);
+        ServiceConnection mConnection = new ServiceConnection() {
 
-		t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-			@Override
-			public void onInit(int status) {
-				if(status != TextToSpeech.ERROR) {
-					t1.setLanguage(Locale.US);
-				}
-			}
-		});
-        ListView lw = (ListView) findViewById();
-		notesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
-				//String number=((TextView)view.findViewById(R.id.number)).getText().toString();
-				String toSpeak = notesList.get(position).getText().toString();
-				Toast.makeText(getApplicationContext(), toSpeak, Toast.LENGTH_SHORT).show();
-				t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
-			}
-		});
-		
+            public void onServiceConnected(ComponentName className, IBinder service) {
+                mIsBound = true;
+                mBoundService = ((TTSService.TTSBinder)service).getService();
+                System.out.println("Comes here in mBoundService init...");
+            }
+
+            public void onServiceDisconnected(ComponentName className) {
+                mIsBound = false;
+                mBoundService = null;
+            }
+        };
+
+        Intent mIntent = new Intent(this, TTSService.class);
+        bindService(mIntent, mConnection, BIND_AUTO_CREATE);
+
 		refreshDisplay();
 		
 	}
