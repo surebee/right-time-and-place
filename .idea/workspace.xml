@@ -9,10 +9,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1489eff0-ba2f-475f-8bf7-1b3da390478e" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\surechan\Documents\GitHub\android-play-location\right-time-and-place\.idea\libraries\android_support_v4.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/list_item_layout.xml" afterPath="$PROJECT_DIR$/res/layout/list_item_layout.xml" />
+    <list default="true" id="1489eff0-ba2f-475f-8bf7-1b3da390478e" name="Default" comment="Added location icon and changed display of notes from singleline to multiline">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_location.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-mdpi/ic_location.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_location.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="right-time-and-place.iws" />
@@ -1247,7 +1247,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447311575355</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added location icon and changed display of notes from singleline to multiline">
+      <created>1448422977649</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1448422977649</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1268,12 +1274,12 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969153" sideWeight="0.48447204" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.49485862" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28984576" sideWeight="0.51552796" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.57670456" sideWeight="0.6960154" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57670456" sideWeight="0.6960154" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.49485862" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.47750643" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.4922879" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.328125" sideWeight="0.4922879" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5025707" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5224936" order="12" side_tool="false" content_ui="tabs" />
@@ -1337,7 +1343,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Working version in Nexus 5 API 23" />
     <MESSAGE value="Texttospeech basic working support added as a bind service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Texttospeech basic working support added as a bind service" />
+    <MESSAGE value="Added location icon and changed display of notes from singleline to multiline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added location icon and changed display of notes from singleline to multiline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
