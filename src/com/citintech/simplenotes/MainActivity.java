@@ -51,10 +51,14 @@ public class MainActivity extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 
-		if (item.getItemId() == com.citintech.simplenotes.R.id.action_create) {
+		if (item.getItemId() == com.citintech.simplenotes.R.id.action_create_note) {
 			createNote();
 		}
-		
+
+		if (item.getItemId() == com.citintech.simplenotes.R.id.action_create_location) {
+			createLocation();
+		}
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -64,6 +68,10 @@ public class MainActivity extends ListActivity {
 		intent.putExtra("key", note.getKey());
 		intent.putExtra("text", note.getText());
 		startActivityForResult(intent, EDITOR_ACTIVITY_REQUEST);
+	}
+
+	private void createLocation() {
+		System.out.println("Here here createLocation");
 	}
 
 	@Override

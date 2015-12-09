@@ -22,6 +22,7 @@ public class NoteEditorActivity extends Activity {
 		note = new NoteItem();
 		note.setKey(intent.getStringExtra("key"));
 		note.setText(intent.getStringExtra("text"));
+		//note.setLocation(intent.get
 		
 		EditText et = (EditText) findViewById(com.citintech.simplenotes.R.id.noteText);
 		et.setText(note.getText());
